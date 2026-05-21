@@ -1,0 +1,77 @@
+.gradient-pro-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #4F46E5 0%, #06B6D4 100%);
+  padding: 20px;
+}
+
+.gradient-pro-card {
+  width: 100%;
+  max-width: 420px;
+  background-color: #FFF;
+  border-radius: 16px;
+  padding: 32px 24px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.gradient-pro-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.gradient-pro-image {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.gradient-pro-placeholder {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #E0E7FF;
+  color: #4F46E5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 28px;
+}
+
+.gradient-pro-header-text {
+  margin-left: 20px;
+  flex: 1;
+}
+
+.gradient-pro-name {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #111;
+  margin-bottom: 4px;
+}
+
+.gradient-pro-role {
+  font-size: 0.95rem;
+  color: #4F46E5;
+  font-weight: 600;
+}
+
+.gradient-pro-links {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.gradient-pro-link-item {
+  display: flex;
+  align-items: center;
+  background-color: #F3F4F6;
+  padding: 14px 16px;
+  border-radius: 8px;
+  gap: 12px;
+  color: #333;
+  font-size: 0.95rem;
+}

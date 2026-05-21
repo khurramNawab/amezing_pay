@@ -1,0 +1,118 @@
+.shared-footer-container {
+  margin-top: 20px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.shared-social-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+}
+
+.shared-social-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--accent);
+  color: var(--icon-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  transition: transform 0.2s, opacity 0.2s;
+}
+
+.shared-social-btn:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+
+.shared-section-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: inherit;
+  opacity: 0.8;
+}
+
+.shared-payment-section {
+  text-align: center;
+  padding: 16px;
+  border-radius: 12px;
+  background: rgba(128, 128, 128, 0.1);
+}
+
+.shared-qr-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.shared-qr-wrap {
+  background: white;
+  padding: 12px;
+  border-radius: 12px;
+  display: inline-block;
+}
+
+.shared-qr-img {
+  width: 144px;
+  height: 144px;
+  border-radius: 12px;
+  object-fit: cover;
+  background: white;
+  padding: 4px;
+}
+
+.shared-upi-id {
+  font-size: 0.85rem;
+  font-family: monospace;
+  background: rgba(128, 128, 128, 0.2);
+  padding: 4px 10px;
+  border-radius: 8px;
+}
+
+.shared-products-section {
+  text-align: center;
+}
+
+.shared-products-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+}
+
+.shared-product-item {
+  width: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.shared-product-img {
+  width: 60px;
+  height: 60px;
+  border-radius: 8px;
+  object-fit: cover;
+  border: 1px solid rgba(128, 128, 128, 0.2);
+}
+
+.shared-product-title {
+  font-size: 0.75rem;
+  text-align: center;
+  line-height: 1.2;
+  opacity: 0.9;
+}

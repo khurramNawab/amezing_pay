@@ -1,0 +1,105 @@
+.modern-dark-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #121212;
+  padding: 20px;
+}
+
+.modern-dark-card {
+  width: 100%;
+  max-width: 420px;
+  background-color: #1E1E1E;
+  display: flex;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.modern-dark-accent {
+  width: 8px;
+  background-color: #4F46E5;
+}
+
+.modern-dark-content {
+  flex: 1;
+  display: flex;
+  align-items: flex-start;
+  padding: 24px;
+}
+
+.modern-dark-image {
+  width: 70px;
+  height: 70px;
+  border-radius: 12px;
+  object-fit: cover;
+  margin-right: 20px;
+}
+
+.modern-dark-placeholder {
+  width: 70px;
+  height: 70px;
+  border-radius: 12px;
+  background-color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 28px;
+  margin-right: 20px;
+}
+
+.modern-dark-right {
+  flex: 1;
+}
+
+.modern-dark-name {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #FFF;
+  margin-bottom: 2px;
+}
+
+.modern-dark-role {
+  font-size: 0.85rem;
+  color: #888;
+  margin-bottom: 6px;
+}
+
+.modern-dark-company {
+  font-size: 0.85rem;
+  color: #BBB;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.modern-dark-separator {
+  height: 1px;
+  background-color: #333;
+  width: 50%;
+  margin: 12px 0;
+}
+
+.modern-dark-icon-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+  color: #BBB;
+  font-size: 0.85rem;
+}
+
+@media (max-width: 400px) {
+  .modern-dark-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .modern-dark-image, .modern-dark-placeholder {
+    margin-right: 0;
+    margin-bottom: 16px;
+  }
+  .modern-dark-separator {
+    margin: 12px auto;
+  }
+}

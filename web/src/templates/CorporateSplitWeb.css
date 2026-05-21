@@ -1,0 +1,133 @@
+.corporate-split-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f1f5f9;
+  padding: 20px;
+}
+
+.corporate-split-card {
+  width: 100%;
+  max-width: 480px;
+  background-color: #FFF;
+  display: flex;
+  flex-direction: row;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.corporate-split-left {
+  width: 35%;
+  background-color: #4F46E5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.corporate-split-image {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 3px solid #FFF;
+  object-fit: cover;
+}
+
+.corporate-split-placeholder {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 3px solid #FFF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 32px;
+}
+
+.corporate-split-right {
+  width: 65%;
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.corporate-split-text-wrap {
+  margin-bottom: 20px;
+}
+
+.corporate-split-name {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #4F46E5;
+  margin-bottom: 4px;
+}
+
+.corporate-split-role {
+  font-size: 0.9rem;
+  color: #666;
+  font-weight: 500;
+}
+
+.corporate-split-company {
+  font-size: 0.95rem;
+  color: #333;
+  font-weight: 600;
+  margin-top: 4px;
+}
+
+.corporate-split-category {
+  font-size: 0.8rem;
+  color: #666;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+.corporate-split-bottom-data {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.corporate-split-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.corporate-split-icon-box {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: #4F46E5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.corporate-split-contact-text {
+  font-size: 0.85rem;
+  color: #333;
+  font-weight: 600;
+}
+
+@media (max-width: 480px) {
+  .corporate-split-card {
+    flex-direction: column;
+  }
+  .corporate-split-left {
+    width: 100%;
+    padding: 30px;
+  }
+  .corporate-split-image, .corporate-split-placeholder {
+    width: 120px;
+  }
+  .corporate-split-right {
+    width: 100%;
+  }
+}

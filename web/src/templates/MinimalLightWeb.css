@@ -1,0 +1,115 @@
+.minimal-light-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f5f5f5;
+  padding: 20px;
+}
+
+.minimal-light-card {
+  width: 100%;
+  max-width: 420px;
+  background-color: #FFFFFF;
+  border-radius: 16px;
+  padding: 32px 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.minimal-light-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  color: #111;
+}
+
+.minimal-light-image {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 16px;
+}
+
+.minimal-light-placeholder {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: #F0F0F0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 32px;
+  margin-bottom: 16px;
+}
+
+.minimal-light-name {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #111;
+  margin-bottom: 4px;
+}
+
+.minimal-light-role {
+  font-size: 0.85rem;
+  color: #666;
+  margin-bottom: 8px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.minimal-light-company {
+  font-size: 1rem;
+  color: #444;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.minimal-light-category {
+  font-size: 0.75rem;
+  color: #666;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+}
+
+.minimal-light-details {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.minimal-light-contact-text {
+  font-size: 0.9rem;
+  color: #444;
+}
+
+.minimal-light-bullet {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.minimal-light-info-rows {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.minimal-light-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: #666;
+  font-size: 0.85rem;
+}
+
+.minimal-light-description {
+  align-items: flex-start;
+  text-align: left;
+  line-height: 1.4;
+}

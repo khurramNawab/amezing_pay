@@ -1,0 +1,101 @@
+.classic-horizontal-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f9fafb;
+  padding: 20px;
+}
+
+.classic-horizontal-card {
+  width: 100%;
+  max-width: 460px;
+  background-color: #FDFDFD;
+  border: 1px solid #E5E5E5;
+  padding: 32px 24px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.classic-horizontal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.classic-horizontal-header-left {
+  flex: 1;
+  margin-right: 20px;
+}
+
+.classic-horizontal-name {
+  font-size: 1.6rem;
+  color: #333;
+  font-weight: 600;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  margin-bottom: 6px;
+}
+
+.classic-horizontal-role {
+  font-size: 0.85rem;
+  color: #777;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 6px;
+}
+
+.classic-horizontal-company {
+  font-size: 0.95rem;
+  color: #555;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.classic-horizontal-category {
+  font-size: 0.8rem;
+  color: #888;
+  font-style: italic;
+}
+
+.classic-horizontal-image {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  border: 1px solid #E0E0E0;
+}
+
+.classic-horizontal-placeholder {
+  width: 70px;
+  height: 70px;
+  background-color: #F5F5F5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #E0E0E0;
+  font-size: 24px;
+}
+
+.classic-horizontal-dashed-line {
+  height: 1px;
+  border-bottom: 1px dashed #CCC;
+  margin: 24px 0;
+}
+
+.classic-horizontal-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.classic-horizontal-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #444;
+  font-size: 0.95rem;
+}
+
+.classic-horizontal-desc {
+  align-items: flex-start;
+  line-height: 1.4;
+}

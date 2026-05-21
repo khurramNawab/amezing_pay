@@ -1,0 +1,94 @@
+.neon-edge-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #0A0A0A;
+  padding: 20px;
+}
+
+.neon-edge-glow-box {
+  width: 100%;
+  max-width: 420px;
+  background-color: #111;
+  border-radius: 10px;
+  padding: 2px;
+  box-shadow: 0 0 15px rgba(0, 255, 204, 0.4);
+}
+
+.neon-edge-inner {
+  background-color: #050505;
+  border-radius: 8px;
+  padding: 32px 24px;
+}
+
+.neon-edge-avatar-section {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.neon-edge-image {
+  width: 60px;
+  height: 60px;
+  border-radius: 8px;
+  object-fit: cover;
+  border: 1px solid #00FFCC;
+}
+
+.neon-edge-placeholder {
+  width: 60px;
+  height: 60px;
+  border-radius: 8px;
+  background-color: #111;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  border: 1px solid #00FFCC;
+}
+
+.neon-edge-titles {
+  flex: 1;
+}
+
+.neon-edge-name {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #FFF;
+  margin-bottom: 4px;
+}
+
+.neon-edge-role {
+  font-size: 0.85rem;
+  color: #00FFCC;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.neon-edge-line {
+  height: 1px;
+  background-color: #333;
+  margin: 24px 0;
+}
+
+.neon-edge-bottom-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.neon-edge-contact-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  color: #CCC;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color 0.2s;
+}
+
+.neon-edge-contact-item:hover {
+  color: #00FFCC;
+}

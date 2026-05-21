@@ -1,0 +1,20 @@
+export type AdminProduct = {
+  _id: string;
+  title: string;
+  description: string;
+  price: number;
+  commission: string;
+  originalPrice?: number;
+  category: string;
+  imageUrl?: string;
+  imageUrls?: string[];
+  source: "affiliate" | "internal";
+  platformName?: string;
+  platformColor?: string;
+  trustBadge?: string;
+  shareUrl?: string;
+  placements: Array<"high_commission" | "digital_store" | "trending_affiliate">;
+  sortOrder: number;
+  isActive: boolean;
+  createdAt?: string;
+};

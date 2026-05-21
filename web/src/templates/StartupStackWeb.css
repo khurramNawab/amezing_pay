@@ -1,0 +1,122 @@
+.startup-stack-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #F3F4F6;
+  padding: 20px;
+}
+
+.startup-stack-wrapper {
+  width: 100%;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.startup-stack-top-card {
+  background-color: #FFF;
+  border-radius: 16px;
+  padding: 24px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.startup-stack-image {
+  width: 60px;
+  height: 60px;
+  border-radius: 16px;
+  object-fit: cover;
+}
+
+.startup-stack-placeholder {
+  width: 60px;
+  height: 60px;
+  border-radius: 16px;
+  background-color: #3B82F6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #FFF;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.startup-stack-top-text {
+  margin-left: 20px;
+}
+
+.startup-stack-name {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #111;
+  margin-bottom: 6px;
+}
+
+.startup-stack-badge {
+  background-color: #DBEAFE;
+  padding: 4px 12px;
+  border-radius: 8px;
+  display: inline-block;
+}
+
+.startup-stack-role {
+  font-size: 0.8rem;
+  color: #1D4ED8;
+  font-weight: 600;
+}
+
+.startup-stack-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.startup-stack-info-block {
+  display: flex;
+  align-items: center;
+  background-color: #FFF;
+  padding: 16px;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.startup-stack-icon-wrapper {
+  background-color: #3B82F6;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.startup-stack-info-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.startup-stack-label {
+  font-size: 0.75rem;
+  color: #9CA3AF;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.startup-stack-value {
+  font-size: 1rem;
+  color: #1F2937;
+  font-weight: 500;
+}
+
+.startup-stack-footer-wrap {
+  background-color: #FFF;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
