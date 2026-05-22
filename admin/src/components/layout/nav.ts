@@ -10,6 +10,7 @@ import {
   Bell,
   Settings,
   ShoppingBag,
+  HelpCircle,
 } from "lucide-react";
 
 export const navItems = [
@@ -23,5 +24,6 @@ export const navItems = [
   { label: "Ads", to: "/ads", icon: Megaphone },
   { label: "Media", to: "/media", icon: ImageIcon },
   { label: "Notifications", to: "/notifications", icon: Bell },
+  { label: "Quiz", to: "/quiz", icon: HelpCircle },
   { label: "Settings", to: "/settings", icon: Settings },
 ] as const;

@@ -28,6 +28,7 @@ import notificationRoutes from './routes/notificationRoutes.js';
 import kycRoutes from './routes/kycRoutes.js';
 import { apiLimiter, authLimiter } from './middleware/rateLimitMiddleware.js';
 import { versionCheck } from './middleware/versionCheckMiddleware.js';
+import { verifyEmail } from './controllers/authController.js';
 
 export const createApp = () => {
     const app = express();
@@ -101,6 +102,7 @@ export const createApp = () => {
     app.use('/public', express.static('public'));
 
     // Routes
+    app.get('/api/verify-email', verifyEmail);
     app.use('/api/auth', authLimiter, authRoutes);
     app.use('/api/products', productRoutes);
     app.use('/api/referrals', referralRoutes);

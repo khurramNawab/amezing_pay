@@ -139,7 +139,7 @@ export function WithdrawalsPage() {
                  )}
                  {(w.status === 'PENDING' || w.status === 'PROCESSING') && (
                    <>
-                    <Button size="sm" variant="success" onClick={() => approve(w._id)} disabled={!!actionLoadingId}>Approve</Button>
+                    <Button size="sm" variant="primary" onClick={() => approve(w._id)} disabled={!!actionLoadingId}>Approve</Button>
                     <Button size="sm" variant="danger" onClick={() => reject(w._id)} disabled={!!actionLoadingId}>Reject</Button>
                    </>
                  )}

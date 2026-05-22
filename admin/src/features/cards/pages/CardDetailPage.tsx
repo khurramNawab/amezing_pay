@@ -6,7 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/Card";
 
 export function CardDetailPage() {
   const { id } = useParams();
-  const [card, setCard] = useState(null);
+  const [card, setCard] = useState<any>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {

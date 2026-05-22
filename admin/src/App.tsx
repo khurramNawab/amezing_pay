@@ -15,6 +15,7 @@ import { MediaPage } from "@/features/media/pages/MediaPage";
 import { ProductsPage } from "@/features/products/pages/ProductsPage";
 import { WithdrawalsPage } from "@/features/withdrawals/pages/WithdrawalsPage";
 import { CardDetailPage } from "@/features/cards/pages/CardDetailPage";
+import { QuizPage } from "@/features/quiz/pages/QuizPage";
 
 export default function App() {
   return (
@@ -40,6 +41,7 @@ export default function App() {
         <Route path="ads" element={<AdsPage />} />
         <Route path="media" element={<MediaPage />} />
         <Route path="notifications" element={<NotificationsPage />} />
+        <Route path="quiz" element={<QuizPage />} />
         <Route path="settings" element={<SettingsPage />} />
         <Route path="card/:id" element={<CardDetailPage />} />
       </Route>

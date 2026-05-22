@@ -293,7 +293,7 @@ export const submitKyc = async (req, res) => {
  * GET /api/auth/verify-email/:token
  */
 export const verifyEmail = async (req, res) => {
-  const { token } = req.params;
+  const token = req.params.token || req.query.token;
   if (!token)
     return res
       .status(400)
