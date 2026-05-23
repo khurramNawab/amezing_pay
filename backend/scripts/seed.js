@@ -28,7 +28,7 @@ const seed = async () => {
         kycStatus: 'verified',
         referralCode: 'ROHIT100'
       },
-      { upsert: true, new: true, returnDocument: 'after' }
+      { upsert: true, returnDocument: 'after' }
     );
 
     const userB = await User.findOneAndUpdate(
@@ -43,7 +43,7 @@ const seed = async () => {
         kycStatus: 'pending',
         referralCode: 'SUMIT200'
       },
-      { upsert: true, new: true, returnDocument: 'after' }
+      { upsert: true, returnDocument: 'after' }
     );
 
     // 2. Create Dummy Products

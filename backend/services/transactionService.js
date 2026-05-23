@@ -67,7 +67,7 @@ export const createLedgerEntry = async (payload, { session } = {}) => {
     // Update the physical Wallet document
     let walletDoc;
     const query = { user: doc.user, layer: doc.wallet };
-    const options = { new: true, runValidators: true };
+    const options = { returnDocument: 'after', runValidators: true };
     if (session) {
       options.session = session;
     }
@@ -115,6 +115,6 @@ export const markLedgerStatus = async ({ transactionId, status, patch = {}, sess
   return await Transaction.findByIdAndUpdate(
     transactionId,
     { $set: { status: asStatus(status), ...patch } },
-    { new: true, session },
+    { returnDocument: 'after', session },
   );
 };

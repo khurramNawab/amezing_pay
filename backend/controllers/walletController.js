@@ -99,6 +99,10 @@ export const createWalletTopupOrder = async (req, res) => {
       currency: 'INR',
       orderId: cfOrder.order_id,
       status: 'created',
+      meta: {
+        payment_session_id: cfOrder.payment_session_id,
+        cf_order_id: cfOrder.cf_order_id,
+      },
     });
 
     return res.json({
@@ -166,12 +170,14 @@ export const walletTopupCheckoutPage = async (req, res) => {
     const po = await PaymentOrder.findOne({ provider: 'cashfree', orderId });
     if (!po) return res.status(404).send('Order not found');
 
-    // For Cashfree, we need the payment_session_id which we should have stored or fetch now
-    const cfOrder = await getCashfreeOrder(orderId);
-    const sessionId = cfOrder.payment_session_id;
+    // payment_session_id is stored in meta at order creation time.
+    // Cashfree does NOT return it on GET /orders — only on POST /orders.
+    const sessionId = po.meta?.payment_session_id;
+    if (!sessionId) return res.status(500).send('Payment session expired. Please go back and try again.');
+
+    const cfMode = env.CASHFREE_ENV === 'PRODUCTION' ? 'production' : 'sandbox';
 
     res.setHeader('Content-Type', 'text/html; charset=utf-8');
-
     return res.status(200).send(`<!doctype html>
 <html>
   <head>
@@ -180,30 +186,87 @@ export const walletTopupCheckoutPage = async (req, res) => {
     <title>Amezing Pay - Wallet Top-up</title>
     <script src="https://sdk.cashfree.com/js/v3/cashfree.js"></script>
     <style>
-      body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial;background:#0b1220;color:#e2e8f0;margin:0;display:flex;min-height:100vh;align-items:center;justify-content:center}
-      .card{width:min(520px,92vw);background:rgba(255,255,255,0.06);border:1px solid rgba(148,163,184,0.25);border-radius:18px;padding:22px;text-align:center}
-      .title{font-weight:700;font-size:18px}
-      .muted{color:rgba(226,232,240,0.7);font-size:13px;margin-top:6px}
-      .btn{margin-top:18px;width:100%;height:48px;border-radius:14px;border:0;cursor:pointer;background:#4f46e5;color:#fff;font-weight:700}
-      .status{margin-top:14px;font-size:13px;color:rgba(226,232,240,0.75)}
+      *{box-sizing:border-box;margin:0;padding:0}
+      body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial;background:#0b1220;color:#e2e8f0;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px}
+      .card{width:min(480px,95vw);background:rgba(255,255,255,0.06);border:1px solid rgba(148,163,184,0.2);border-radius:20px;padding:28px;text-align:center}
+      .title{font-weight:700;font-size:20px;margin-bottom:6px}
+      .sub{color:rgba(226,232,240,0.65);font-size:13px;margin-bottom:4px}
+      .amount{font-size:28px;font-weight:800;color:#818cf8;margin:12px 0 24px}
+      .btn{width:100%;height:52px;border-radius:14px;border:0;cursor:pointer;background:linear-gradient(135deg,#4f46e5,#6366f1);color:#fff;font-weight:700;font-size:16px;letter-spacing:0.3px;transition:opacity .2s}
+      .btn:hover{opacity:.9}
+      .btn:disabled{opacity:.5;cursor:not-allowed}
+      .status{margin-top:16px;font-size:13px;color:rgba(226,232,240,0.6);min-height:20px}
+      .err{color:#f87171}
     </style>
   </head>
   <body>
     <div class="card">
       <div class="title">Wallet Top-up</div>
-      <div class="muted">Order: <code>${orderId}</code></div>
-      <div class="muted">Amount: <strong>INR ${Number(po.amount ?? 0).toFixed(2)}</strong></div>
+      <div class="sub">Order: <code style="font-size:11px">${orderId}</code></div>
+      <div class="amount">&#8377; ${Number(po.amount ?? 0).toFixed(2)}</div>
       <button id="pay" class="btn">Proceed to Pay</button>
       <div id="status" class="status"></div>
     </div>
     <script>
-      const cashfree = Cashfree({ mode: "${env.CASHFREE_ENV === 'PRODUCTION' ? 'production' : 'sandbox'}" });
-      document.getElementById('pay').addEventListener('click', () => {
-        cashfree.checkout({
-          paymentSessionId: "${sessionId}",
-          redirectTarget: "_self"
+      (function() {
+        var SESSION_ID = "${sessionId}";
+        var MODE = "${cfMode}";
+
+        function setStatus(msg, isErr) {
+          var el = document.getElementById('status');
+          el.textContent = msg;
+          el.className = 'status' + (isErr ? ' err' : '');
+          if (window.ReactNativeWebView) {
+            window.ReactNativeWebView.postMessage(JSON.stringify({
+              type: isErr ? 'error' : 'log',
+              message: msg
+            }));
+          }
+        }
+
+        window.onerror = function(message, source, lineno, colno, error) {
+          setStatus('JS Error: ' + message + ' (line ' + lineno + ')', true);
+          return true;
+        };
+
+        // Check if Cashfree loaded
+        if (typeof Cashfree === 'undefined') {
+          setStatus('Cashfree SDK failed to load. Check internet connection.', true);
+        }
+
+        document.getElementById('pay').addEventListener('click', function() {
+          var btn = document.getElementById('pay');
+          btn.disabled = true;
+          setStatus('Initialising payment gateway...');
+
+          try {
+            if (typeof Cashfree === 'undefined') {
+              throw new Error('Cashfree SDK is not loaded yet');
+            }
+            var cashfree = Cashfree({ mode: MODE });
+            setStatus('Opening checkout window...');
+            cashfree.checkout({
+              paymentSessionId: SESSION_ID,
+              redirectTarget: '_self',
+            }).then(function(result) {
+              if (result && result.error) {
+                setStatus('Payment error: ' + result.error.message, true);
+                btn.disabled = false;
+              } else if (result && result.redirect) {
+                setStatus('Redirecting...');
+              } else {
+                setStatus('Checkout process launched.');
+              }
+            }).catch(function(err) {
+              setStatus('Unexpected error: ' + (err.message || err), true);
+              btn.disabled = false;
+            });
+          } catch(e) {
+            setStatus('Could not load payment gateway: ' + e.message, true);
+            btn.disabled = false;
+          }
         });
-      });
+      })();
     </script>
   </body>
 </html>`);

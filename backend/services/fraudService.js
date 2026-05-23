@@ -92,7 +92,7 @@ export const checkRateLimit = async (userId, action, limitSeconds, maxRequests) 
             $inc: { count: 1 },
             $setOnInsert: { expiresAt: new Date(Date.now() + (limitSeconds * 1000)) }
         },
-        { upsert: true, new: true }
+        { upsert: true, returnDocument: 'after' }
     );
 
     if (record.count > maxRequests) {

@@ -119,7 +119,7 @@ export const applyTwoTierCommission = async ({ saleId, sellerId, buyerId, amount
         validatedAt: new Date(),
       },
     },
-    { upsert: true, new: true, session },
+    { upsert: true, returnDocument: 'after', session },
   );
 
   const sellerTx = await credit({

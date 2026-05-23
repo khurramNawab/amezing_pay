@@ -22,14 +22,13 @@ export function LoginPage() {
     dispatch(adminLogin({ email, password }))
       .unwrap()
       .then(() => navigate("/", { replace: true }))
-      .catch(() => {});
+      .catch(() => { });
   };
 
   return (
     <div>
       <div>
         <div>
-          <div>A</div>
           <div>Admin Login</div>
           <div>Sign in to manage users, cards, templates and revenue.</div>
         </div>

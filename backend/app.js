@@ -103,6 +103,45 @@ export const createApp = () => {
 
     // Routes
     app.get('/api/verify-email', verifyEmail);
+    app.get('/api/payment-status', (req, res) => {
+        const orderId = req.query.order_id || req.query.orderId || '';
+        res.setHeader('Content-Type', 'text/html; charset=utf-8');
+        return res.status(200).send(`<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Amezing Pay - Payment Processed</title>
+    <style>
+      *{box-sizing:border-box;margin:0;padding:0}
+      body{font-family:-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:#0b1220;color:#e2e8f0;min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:20px}
+      .card{width:100%;max-width:440px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:24px;padding:32px;box-shadow:0 20px 40px rgba(0,0,0,0.3)}
+      .icon{font-size:54px;color:#10b981;margin-bottom:20px;display:inline-block;width:80px;height:80px;line-height:80px;border-radius:50%;background:rgba(16,185,129,0.1);border:1px solid rgba(16,185,129,0.2)}
+      .title{font-weight:700;font-size:22px;margin-bottom:8px;letter-spacing:-0.5px}
+      .sub{color:#94a3b8;font-size:14px;margin-bottom:24px;line-height:1.5}
+      .btn{display:inline-block;width:100%;height:50px;line-height:50px;border-radius:14px;background:#2563eb;color:#fff;text-decoration:none;font-weight:600;font-size:15px;border:0;cursor:pointer}
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <div class="icon">✓</div>
+      <div class="title">Payment Processed</div>
+      <p class="sub" style="margin-top:12px">Order ID: <code style="font-size:12px;color:#3b82f6;background:rgba(59,130,246,0.1);padding:4px 8px;border-radius:6px">${orderId}</code></p>
+      <p class="sub">Your transaction status is being updated. You can close this screen now or wait a moment.</p>
+      <button onclick="closeWebView()" class="btn">Close Window</button>
+    </div>
+    <script>
+      function closeWebView() {
+        if (window.ReactNativeWebView) {
+          window.ReactNativeWebView.postMessage(JSON.stringify({ type: 'complete', orderId: "${orderId}" }));
+        }
+      }
+      // Auto-post complete message to trigger auto-close
+      setTimeout(closeWebView, 1500);
+    </script>
+  </body>
+</html>`);
+    });
     app.use('/api/auth', authLimiter, authRoutes);
     app.use('/api/products', productRoutes);
     app.use('/api/referrals', referralRoutes);

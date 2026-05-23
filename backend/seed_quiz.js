@@ -6,38 +6,38 @@ import AppConfig from './models/AppConfig.js';
 dotenv.config();
 
 const questions = [
-  { prompt: "What is the capital of France?", options: ["London", "Berlin", "Paris", "Madrid"], correctIndex: 2, difficulty: "easy", category: "Geography" },
-  { prompt: "Which planet is known as the Red Planet?", options: ["Earth", "Mars", "Jupiter", "Saturn"], correctIndex: 1, difficulty: "easy", category: "Science" },
-  { prompt: "What is the largest ocean on Earth?", options: ["Atlantic", "Indian", "Arctic", "Pacific"], correctIndex: 3, difficulty: "easy", category: "Geography" },
-  { prompt: "Who wrote 'Hamlet'?", options: ["Charles Dickens", "William Shakespeare", "Mark Twain", "Jane Austen"], correctIndex: 1, difficulty: "easy", category: "Literature" },
-  { prompt: "What is the square root of 64?", options: ["6", "7", "8", "9"], correctIndex: 2, difficulty: "easy", category: "Math" },
-  { prompt: "What is the chemical symbol for Gold?", options: ["Ag", "Au", "Pb", "Fe"], correctIndex: 1, difficulty: "easy", category: "Science" },
-  { prompt: "In what year did the Titanic sink?", options: ["1910", "1912", "1914", "1916"], correctIndex: 1, difficulty: "easy", category: "History" },
-  { prompt: "How many continents are there?", options: ["5", "6", "7", "8"], correctIndex: 2, difficulty: "easy", category: "Geography" },
-  { prompt: "What is the tallest mammal?", options: ["Elephant", "Giraffe", "Hippopotamus", "Rhino"], correctIndex: 1, difficulty: "easy", category: "Science" },
-  { prompt: "Which element is most abundant in the Earth's atmosphere?", options: ["Oxygen", "Carbon", "Nitrogen", "Hydrogen"], correctIndex: 2, difficulty: "easy", category: "Science" },
-  { prompt: "What is the smallest prime number?", options: ["0", "1", "2", "3"], correctIndex: 2, difficulty: "easy", category: "Math" },
-  { prompt: "Who painted the Mona Lisa?", options: ["Vincent van Gogh", "Pablo Picasso", "Leonardo da Vinci", "Claude Monet"], correctIndex: 2, difficulty: "easy", category: "Art" },
-  { prompt: "What is the largest organ in the human body?", options: ["Heart", "Brain", "Liver", "Skin"], correctIndex: 3, difficulty: "easy", category: "Science" },
-  { prompt: "Which is the hottest planet in our solar system?", options: ["Mercury", "Venus", "Mars", "Jupiter"], correctIndex: 1, difficulty: "easy", category: "Science" },
-  { prompt: "How many bones are there in the adult human body?", options: ["206", "208", "210", "212"], correctIndex: 0, difficulty: "easy", category: "Science" },
-  { prompt: "Which language has the most native speakers?", options: ["English", "Spanish", "Mandarin Chinese", "Hindi"], correctIndex: 2, difficulty: "easy", category: "Geography" },
-  { prompt: "Who was the first person to walk on the moon?", options: ["Yuri Gagarin", "Buzz Aldrin", "Neil Armstrong", "Michael Collins"], correctIndex: 2, difficulty: "easy", category: "History" },
-  { prompt: "What is the hardest natural substance on Earth?", options: ["Gold", "Iron", "Diamond", "Platinum"], correctIndex: 2, difficulty: "easy", category: "Science" },
-  { prompt: "Which country is home to the kangaroo?", options: ["India", "Brazil", "Australia", "South Africa"], correctIndex: 2, difficulty: "easy", category: "Geography" },
-  { prompt: "What color do you get when you mix blue and yellow?", options: ["Green", "Purple", "Orange", "Brown"], correctIndex: 0, difficulty: "easy", category: "Art" }
+  { prompt: "Who is known as the Father of the Indian Constitution?", options: ["Mahatma Gandhi", "Dr. B.R. Ambedkar", "Jawaharlal Nehru", "Subhas Chandra Bose"], correctIndex: 1, difficulty: "easy", category: "General Knowledge" },
+  { prompt: "Which is the largest state in India by area?", options: ["Uttar Pradesh", "Maharashtra", "Rajasthan", "Madhya Pradesh"], correctIndex: 2, difficulty: "easy", category: "General Knowledge" },
+  { prompt: "Which river is known as the Ganga of the South?", options: ["Godavari", "Krishna", "Cauvery", "Narmada"], correctIndex: 0, difficulty: "easy", category: "General Knowledge" },
+  { prompt: "Who was the first female Prime Minister of India?", options: ["Pratibha Patil", "Indira Gandhi", "Sarojini Naidu", "Sushma Swaraj"], correctIndex: 1, difficulty: "easy", category: "General Knowledge" },
+  { prompt: "Which Indian city is known as the 'Pink City'?", options: ["Udaipur", "Jaipur", "Jodhpur", "Jaisalmer"], correctIndex: 1, difficulty: "easy", category: "General Knowledge" },
+  { prompt: "In which state is the ancient monument 'Taj Mahal' located?", options: ["Delhi", "Uttar Pradesh", "Rajasthan", "Punjab"], correctIndex: 1, difficulty: "easy", category: "General Knowledge" },
+  { prompt: "What is the national currency of India?", options: ["Indian Dollar", "Indian Rupee", "Indian Dinar", "Indian Ringgit"], correctIndex: 1, difficulty: "easy", category: "General Knowledge" },
+  { prompt: "Who wrote the national anthem of India, 'Jana Gana Mana'?", options: ["Bankim Chandra Chatterjee", "Rabindranath Tagore", "Sarojini Naidu", "Sri Aurobindo"], correctIndex: 1, difficulty: "easy", category: "General Knowledge" },
+  { prompt: "Which state is known as the 'Spices Garden of India'?", options: ["Tamil Nadu", "Karnataka", "Kerala", "Andhra Pradesh"], correctIndex: 2, difficulty: "easy", category: "General Knowledge" },
+  { prompt: "Which is the smallest state in India by area?", options: ["Sikkim", "Goa", "Tripura", "Mizoram"], correctIndex: 1, difficulty: "easy", category: "General Knowledge" },
+  { prompt: "What is the capital city of India?", options: ["Mumbai", "Kolkata", "Chennai", "New Delhi"], correctIndex: 3, difficulty: "easy", category: "General Knowledge" },
+  { prompt: "Who was the first President of India?", options: ["Dr. Rajendra Prasad", "Dr. S. Radhakrishnan", "Zakir Husain", "V.V. Giri"], correctIndex: 0, difficulty: "easy", category: "General Knowledge" },
+  { prompt: "Which festival in India is known as the 'Festival of Lights'?", options: ["Holi", "Diwali", "Eid", "Christmas"], correctIndex: 1, difficulty: "easy", category: "General Knowledge" },
+  { prompt: "Which is the largest country in the world by land area?", options: ["Canada", "China", "United States", "Russia"], correctIndex: 3, difficulty: "easy", category: "General Knowledge" },
+  { prompt: "Which ocean lies to the south of India?", options: ["Pacific Ocean", "Indian Ocean", "Atlantic Ocean", "Arctic Ocean"], correctIndex: 1, difficulty: "easy", category: "General Knowledge" },
+  { prompt: "What is the capital of Uttarakhand?", options: ["Dehradun", "Nainital", "Haridwar", "Rishikesh"], correctIndex: 0, difficulty: "easy", category: "General Knowledge" },
+  { prompt: "Which organ in the human body pumps blood?", options: ["Lungs", "Brain", "Heart", "Kidneys"], correctIndex: 2, difficulty: "easy", category: "General Knowledge" },
+  { prompt: "Which is the highest mountain peak in the world?", options: ["K2", "Mount Everest", "Kangchenjunga", "Lhotse"], correctIndex: 1, difficulty: "easy", category: "General Knowledge" },
+  { prompt: "Which Indian space agency launched the Chandrayaan mission?", options: ["NASA", "ISRO", "ESA", "Roscosmos"], correctIndex: 1, difficulty: "easy", category: "General Knowledge" },
+  { prompt: "What is the national animal of India?", options: ["Lion", "Elephant", "Royal Bengal Tiger", "Leopard"], correctIndex: 2, difficulty: "easy", category: "General Knowledge" }
 ];
 
 const seedData = async () => {
   try {
     await mongoose.connect(process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/amezing_pay');
     
-    // Clear existing questions if needed, or just insert them. Let's insert only.
+    // Clear existing questions if needed
     await QuizQuestion.deleteMany({});
     console.log("Cleared old questions.");
 
     await QuizQuestion.insertMany(questions);
-    console.log("Successfully inserted 20 quiz questions.");
+    console.log("Successfully inserted 20 general knowledge quiz questions.");
 
     // Ensure users have to answer 5 questions
     let config = await AppConfig.getSingleton();

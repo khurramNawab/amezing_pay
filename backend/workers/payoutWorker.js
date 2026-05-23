@@ -97,7 +97,7 @@ const workerLoop = async () => {
         $set: { status: 'processing', lockedAt: new Date() },
         $inc: { attempts: 1 },
       },
-      { new: true, sort: { runAt: 1 } }
+      { returnDocument: 'after', sort: { runAt: 1 } }
     );
 
     if (job) {

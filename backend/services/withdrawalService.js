@@ -107,7 +107,7 @@ export const requestWithdrawal = async ({
             meta,
           },
         },
-        { new: true, upsert: true, session },
+        { returnDocument: 'after', upsert: true, session },
       );
 
       summary = await buildWalletSummary(userId, session);

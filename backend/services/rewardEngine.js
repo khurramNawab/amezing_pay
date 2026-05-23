@@ -161,7 +161,7 @@ export const settlePendingReward = async ({
   const tx = await Transaction.findOneAndUpdate(
     { _id: transactionId, status: 'pending' },
     { $set: { status: 'processing' } },
-    { new: true }
+    { returnDocument: 'after' }
   );
   if (!tx) {
     const err = new Error('Pending reward transaction not found or already processing');
